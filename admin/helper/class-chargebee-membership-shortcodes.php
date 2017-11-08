@@ -146,10 +146,13 @@ if ( ! class_exists( 'Chargebee_Membership_Product_Shortcodes' ) ) {
 						'href' => array(),
 					),
 				);
-				?>
+
+                $cbm_logout_redirect_url = ( !empty($account_option['cbm_logout_redirect']) ? $account_option['cbm_logout_redirect'] : '');
+
+                ?>
 				<div class="mepr-already-logged-in">
 					<?php
-					printf( wp_kses( __( 'You\'re already logged in. <a href="%s">Logout</a>', 'chargebee-membership' ), $valid_tags ), esc_url( wp_logout_url( site_url( '/' . $account_option['cbm_logout_redirect'] . '/' ) ) ) );
+					printf( wp_kses( __( 'You\'re already logged in. <a href="%s">Logout</a>', 'chargebee-membership' ), $valid_tags ), esc_url( wp_logout_url( site_url( '/' . $cbm_logout_redirect_url . '/' ) ) ) );
 					?>
 				</div>
 				<?php
